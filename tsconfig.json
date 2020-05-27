@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "lib": ["es2017"],
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "es6",
+        "noImplicitAny": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitReturns": true,
+        "strict": true,
+        "noUnusedLocals": false,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "dist",
+        "baseUrl": "src",
+        "paths": {
+          "@services/*": ["services/*"],
+          "@routes/*": ["routes/*"],
+          "@config/*": ["config/*"],
+          "@interfaces/*": ["interfaces/*"],
+          "@models/*": ["models/*"],
+          "@utils/*": ["utils/*"],
+          "@classes/*": ["classes/*"],
+          "@dbtest/*": ["dbtest/*"],
+          "@validate/*": ["validate/*"],
+          "@logger/*": ["logger/*"]
+        },
+    },
+    "include": [
+      "empty.ts",
+      "src/**/*.ts",
+      "src/*.ts"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+}
