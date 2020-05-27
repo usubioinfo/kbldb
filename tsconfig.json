@@ -21,7 +21,6 @@
           "@interfaces/*": ["interfaces/*"],
           "@models/*": ["models/*"],
           "@utils/*": ["utils/*"],
-          "@classes/*": ["classes/*"],
           "@dbtest/*": ["dbtest/*"],
           "@validate/*": ["validate/*"],
           "@logger/*": ["logger/*"]

@@ -4,7 +4,11 @@
   "description": "A database for the KAABiL",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/index.ts",
+    "prod": "NODE_ENV=PRODUCTION ts-node src/index.ts",
+    "dev": "NODE_ENV=DEVTEST ts-node src/index.ts",
+    "local": "tsnd --respawn src/index.ts"
   },
   "repository": {
     "type": "git",
