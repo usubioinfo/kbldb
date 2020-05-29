@@ -23,7 +23,8 @@
           "@utils/*": ["utils/*"],
           "@dbtest/*": ["dbtest/*"],
           "@validate/*": ["validate/*"],
-          "@logger/*": ["logger/*"]
+          "@logger/*": ["logger/*"],
+          "@classes/*": ["classes/*"]
         },
     },
     "include": [
