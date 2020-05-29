@@ -11,6 +11,7 @@ require('dotenv-defaults/config');
 import { setupApp } from './middleware.setup';
 import { dbConfig } from '@config/db.config';
 import { port, apiBase, acceptedAgents } from '@config/constants';
+import * as RoutesLib from '@config/route-defs';
 
 
 let credentials: {key: string, cert: string} = {key: '', cert: ''};
@@ -38,6 +39,10 @@ mongoose.connection.on('error', (err: any) => {
 const app = setupApp();
 
 // Passport
+
+// Routes
+app.use(apiBase + 'persons', RoutesLib.PersonRoutes);
+app.use(apiBase + 'news', RoutesLib.NewsArticleRoutes);
 
 
 // Server
