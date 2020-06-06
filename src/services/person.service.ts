@@ -32,6 +32,20 @@ class PersonService extends ModelService<IPerson> {
     }
   }
 
+  public async changePassword(person: IPerson): Promise<string | null> {
+    const salt = await bcrypt.genSalt(13);
+    const hashedPassword = await bcrypt.hash(person.password, salt);
+    person.password = hashedPassword;
+
+    try {
+      const savedModel = await this.saveChangedModel(person, 'password')
+      return savedModel;
+    } catch (err) {
+      console.log(err);
+      return null;
+    }
+  }
+
   public async comparePassword(userPass: string, hashedPassword: string): Promise<boolean> {
     return await bcrypt.compare(userPass, hashedPassword);
   }

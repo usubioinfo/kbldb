@@ -7,13 +7,15 @@ export interface IPerson extends Document {
   // 0 is the highest
   permission: number;
   username: string;
+  changedPassword: boolean;
 }
 
 const PersonSchema: Schema = new Schema({
   name: {type: String, required: true},
   password: {type: String, required: true},
   permission: {type: Number, required: true},
-  username: {type: String, required: true}
+  username: {type: String, required: true},
+  changedPassword: {type: Boolean, required: true}
 }, {
   minimize: false
 });

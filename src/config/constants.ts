@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 let port = 3000;
-let apiBase = '/v1/';
+let apiBase = '/';
 
 if (process.env.NODE_ENV === 'DEVTEST') {
   port = 3001;
