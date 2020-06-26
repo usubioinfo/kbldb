@@ -108,13 +108,13 @@ app.get(apiBase, (req: Request, res: Response) => {
 if (process.env.NODE_ENV === 'PRODUCTION' || process.env.NODE_ENV === 'DEVTEST') {
   const httpsServer = https.createServer(credentials, app);
   httpsServer.listen(port, () => {
-    console.log('\nAstria Backend started in mode \'' + process.env.NODE_ENV + '\'');
+    console.log('\nKBL started in mode \'' + process.env.NODE_ENV + '\'');
     console.log('TLS/HTTPS enabled.');
     console.log('Port: ' + port);
   });
 } else {
   app.listen(port, () => {
-    console.log('\nAstria Backend started in mode \'' + process.env.NODE_ENV + '\'');
+    console.log('\nKBL started in mode \'' + process.env.NODE_ENV + '\'');
     console.log('TLS/HTTPS is off.');
     console.log('Port: ' + port);
     console.log(`Reachable at ${apiBase}`);
