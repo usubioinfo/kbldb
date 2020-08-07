@@ -2,7 +2,6 @@
 require('tsconfig-paths/register');
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import https from 'https';
 
 import { Request, Response, NextFunction } from 'express';
 import express from 'express';
@@ -20,17 +19,6 @@ import { userPassportAuth } from '@config/passport';
 import { port, apiBase, acceptedAgents } from '@config/constants';
 import * as RoutesLib from '@config/route-defs';
 
-
-let credentials: {key: string, cert: string} = {key: '', cert: ''};
-/*
-if (process.env.NODE_ENV === 'PRODUCTION' || process.env.NODE_ENV === 'DEVTEST') {
-  const privateKey  = fs.readFileSync('/etc/letsencrypt/live/inquantir.com/privkey.pem', 'utf8');
-  const certificate = fs.readFileSync('/etc/letsencrypt/live/inquantir.com/cert.pem', 'utf8');
-
-  credentials = {key: privateKey, cert: certificate};
-}
-*/
-
 mongoose.connect(dbConfig.database, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
@@ -46,8 +34,7 @@ mongoose.connection.on('error', (err: any) => {
 // CORS
 const accessControl = (req: Request, res: Response, next: NextFunction) => {
   const allowedOrigins = [
-    'http://127.0.0.1:4000', 'http://localhost:4000', 'http://127.0.0.1:4200', 'http://localhost:4200',
-    'astria.inquantir.com'
+    'http://127.0.0.1:4000', 'http://localhost:4000', 'http://127.0.0.1:4200', 'http://localhost:4200'
   ];
   const origin = req.headers.origin;
   /*
@@ -105,18 +92,9 @@ app.get(apiBase, (req: Request, res: Response) => {
 
 
 // Server
-if (process.env.NODE_ENV === 'PRODUCTION' || process.env.NODE_ENV === 'DEVTEST') {
-  const httpsServer = https.createServer(credentials, app);
-  httpsServer.listen(port, () => {
-    console.log('\nKBL started in mode \'' + process.env.NODE_ENV + '\'');
-    console.log('TLS/HTTPS enabled.');
-    console.log('Port: ' + port);
-  });
-} else {
-  app.listen(port, () => {
-    console.log('\nKBL started in mode \'' + process.env.NODE_ENV + '\'');
-    console.log('TLS/HTTPS is off.');
-    console.log('Port: ' + port);
-    console.log(`Reachable at ${apiBase}`);
-  });
-}
+app.listen(port, () => {
+  console.log('\nKBL started in mode \'' + process.env.NODE_ENV + '\'');
+  console.log('TLS/HTTPS is off.');
+  console.log('Port: ' + port);
+  console.log(`Reachable at ${apiBase}`);
+});

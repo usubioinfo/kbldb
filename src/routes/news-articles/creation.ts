@@ -1,6 +1,6 @@
-import newsArticleService from '@services/newsarticle.service';
+import newsArticleService from '@services/news-article.service';
 import { Request, Response } from 'express';
-import { NewsArticle } from '@models/newsarticle.model';
+import { NewsArticle } from '@schemas/news-article.schema';
 
 export const addNewsArticleRoute = async (req: Request, res: Response) => {
   const newArticle = new NewsArticle(req.body);
