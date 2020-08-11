@@ -85,6 +85,7 @@ app.use(passport.session());
 // Routes
 app.use(apiBase + 'persons', RoutesLib.PersonRoutes);
 app.use(apiBase + 'news', RoutesLib.NewsArticleRoutes);
+app.use(apiBase + 'appointments', RoutesLib.AppointmentRoutes);
 
 app.get(apiBase, (req: Request, res: Response) => {
   res.status(404).send('404 Error');
