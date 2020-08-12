@@ -88,7 +88,7 @@ app.use(apiBase + 'news', RoutesLib.NewsArticleRoutes);
 app.use(apiBase + 'appointments', RoutesLib.AppointmentRoutes);
 
 app.get(apiBase, (req: Request, res: Response) => {
-  res.status(404).send('404 Error');
+  res.status(404).send('<h1 style="color: blue; text-align: center;">404 Error</h1>');
 });
 
 

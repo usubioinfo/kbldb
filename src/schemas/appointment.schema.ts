@@ -2,11 +2,10 @@ import mongoose, { Schema, Model } from 'mongoose';
 import { IAppointment } from '@models/appointment.model';
 
 const AppointmentSchema: Schema = new Schema({
-	name: {type: String, required: true},
 	date: {type: Date, required: true},
 	description: {type: String, required: false},
 	author: {type: String, required: true},
-	involved: [{type: String, required: true}]
+	involved: [{type: String, required: false}]
 },{
 	minimize: false
 });
