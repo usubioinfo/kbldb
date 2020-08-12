@@ -1,17 +1,20 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-let port = 3100;
-let apiBase = '/';
+const dotenvCheck = (property: string | undefined): string => {
+  if (!property) {
+    throw 'dotenv check failed.'
+  }
 
-if (process.env.NODE_ENV === 'DEVTEST') {
-  port = 3001;
+  return property;
 }
 
-if (process.env.NODE_ENV === 'DEVTEST' || process.env.NODE_ENV === 'PRODUCTION') {
-  apiBase = '/v1/';
-}
+const PORT = dotenvCheck(process.env.PORT);
+const API_BASE = dotenvCheck(process.env.API_BASE);
+const DB_SECRET = dotenvCheck(process.env.DB_SECRET);
+const DB_NAME = dotenvCheck(process.env.DB_NAME);
 
-const acceptedAgents = ['KBLWebv1'];
 
-export { port, apiBase, acceptedAgents };
+const ACCEPTED_AGENTS = ['KBLWebv1'];
+
+export { PORT, API_BASE, ACCEPTED_AGENTS, DB_SECRET, DB_NAME };

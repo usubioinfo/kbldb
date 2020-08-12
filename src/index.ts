@@ -14,17 +14,19 @@ import helmet from 'helmet';
 dotenv.config();
 require('dotenv-defaults/config');
 
-import { dbConfig } from '@config/db.config';
 import { userPassportAuth } from '@config/passport';
-import { port, apiBase, acceptedAgents } from '@config/constants';
+import { API_BASE } from '@config/constants';
 import * as RoutesLib from '@config/route-defs';
 
-mongoose.connect(dbConfig.database, {useNewUrlParser: true, useUnifiedTopology: true});
+const PORT = process.env.PORT;
+const db = `mongodb://localhost:27017/${process.env.DB_NAME}`;
+
+mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
 mongoose.connection.on('connected', () => {
-  console.log('Database Connected: ' + dbConfig.database);
+  console.log(`Database Connected: ${db}`);
 });
 
 mongoose.connection.on('error', (err: any) => {
@@ -83,19 +85,19 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
-app.use(apiBase + 'persons', RoutesLib.PersonRoutes);
-app.use(apiBase + 'news', RoutesLib.NewsArticleRoutes);
-app.use(apiBase + 'appointments', RoutesLib.AppointmentRoutes);
+app.use(API_BASE + 'persons', RoutesLib.PersonRoutes);
+app.use(API_BASE + 'news', RoutesLib.NewsArticleRoutes);
+app.use(API_BASE + 'appointments', RoutesLib.AppointmentRoutes);
 
-app.get(apiBase, (req: Request, res: Response) => {
+app.get(API_BASE, (req: Request, res: Response) => {
   res.status(404).send('<h1 style="color: blue; text-align: center;">404 Error</h1>');
 });
 
 
 // Server
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log('\nKBL started in mode \'' + process.env.NODE_ENV + '\'');
   console.log('TLS/HTTPS is off.');
-  console.log('Port: ' + port);
-  console.log(`Reachable at ${apiBase}`);
+  console.log('Port: ' + PORT);
+  console.log(`Reachable at ${API_BASE}`);
 });

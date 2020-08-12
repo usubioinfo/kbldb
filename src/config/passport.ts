@@ -4,7 +4,6 @@ import { Strategy, StrategyOptions } from 'passport-jwt';
 
 import { IPerson } from '@models/person.model';
 import personService from '@services/person.service';
-import { dbConfig } from '@config/db.config';
 
 const cookieExtractor = function(req: Request) {
   let token = null;
@@ -16,7 +15,7 @@ const cookieExtractor = function(req: Request) {
 
 export const userPassportAuth = async (passport: PassportStatic) => {
   const options: StrategyOptions = {
-    secretOrKey: dbConfig.secret,
+    secretOrKey: process.env.DB_SECRET,
     jwtFromRequest: cookieExtractor
   };
 
