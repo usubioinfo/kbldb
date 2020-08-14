@@ -9,12 +9,10 @@ const dotenvCheck = (property: string | undefined): string => {
   return property;
 }
 
-const PORT = dotenvCheck(process.env.PORT);
-const API_BASE = dotenvCheck(process.env.API_BASE);
-const DB_SECRET = dotenvCheck(process.env.DB_SECRET);
-const DB_NAME = dotenvCheck(process.env.DB_NAME);
+export const PORT = dotenvCheck(process.env.PORT);
+export const API_BASE = dotenvCheck(process.env.API_BASE);
+export const DB_SECRET = dotenvCheck(process.env.DB_SECRET);
+export const DB_NAME = dotenvCheck(process.env.DB_NAME);
+export const APPT_EMAIL = dotenvCheck(process.env.APPT_EMAIL);
 
-
-const ACCEPTED_AGENTS = ['KBLWebv1'];
-
-export { PORT, API_BASE, ACCEPTED_AGENTS, DB_SECRET, DB_NAME };
+export const ACCEPTED_AGENTS = ['KBLWebv1'];

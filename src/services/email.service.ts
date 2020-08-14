@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { APPT_EMAIL } from '@config/constants';
 
 class EmailService {
 	private static instance: EmailService;
@@ -24,7 +25,7 @@ class EmailService {
   public async sendMail(subject: string, body: string): Promise<any | null> {
     this.transporter.sendMail({
       from: 'billthemailbot@usu.edu',
-      to: 'smccowan33@gmail.com',
+      to: APPT_EMAIL,
       subject: subject,
       text: body
     }, (err, info) => {
