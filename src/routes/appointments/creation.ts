@@ -13,7 +13,8 @@ export const addNewAppointmentRoute = async (req: Request, res: Response) => {
 
     const savedAppointment = await appointmentService.saveModel(newAppointment);
     if (savedAppointment) {
-      await emailService.sendMail(`New Appointment - ${savedAppointment.author}`, savedAppointment.description!);
+      const body = savedAppointment.description ? savedAppointment.description : 'No description';
+      await emailService.sendMail(`New Appointment - ${savedAppointment.author}`, body);
       return res.json({success: true, msg: 'Successfully added news article', payload: newAppointment});
     } else {
       return res.json({success: false, msg: 'Could not add person...'});
