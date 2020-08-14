@@ -1,4 +1,5 @@
 import appointmentService from '@services/appointment.service';
+import emailService from '@services/email.service';
 import { Request, Response } from 'express';
 import { Appointment } from '@schemas/appointment.schema';
 
@@ -12,6 +13,7 @@ export const addNewAppointmentRoute = async (req: Request, res: Response) => {
 
     const savedAppointment = await appointmentService.saveModel(newAppointment);
     if (savedAppointment) {
+      await emailService.sendMail('test', 'sending');
       return res.json({success: true, msg: 'Successfully added news article', payload: newAppointment});
     } else {
       return res.json({success: false, msg: 'Could not add person...'});
