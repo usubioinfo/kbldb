@@ -22,6 +22,8 @@ class AppointmentService extends ModelService<IAppointment> {
 			'$project': {
 				'month': { '$month': '$date' },
 				'day': { '$dayOfMonth': '$date'},
+				'hour': { '$hour': '$date'},
+				'minute': { '$minute': '$date'},
 				'description': 1,
 				'author': 1
 			}
