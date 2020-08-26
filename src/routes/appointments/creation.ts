@@ -13,11 +13,14 @@ export const addNewAppointmentRoute = async (req: Request, res: Response) => {
     const dateData = req.body.date.split('-');
     // hour, minute, meridiem
     const timeData = req.body.time.split('-');
-    const mongoHour = toMongoHour(timeData[0], timeData[2]);
-    if (!mongoHour) {
-      return res.json({success: false, msg: 'Time data is incorrect...'});
+    const mongoHour = toMongoHour(parseInt(timeData[0]), timeData[2]);
+    // Lol, 0 is falsy
+    if (!mongoHour && mongoHour !== 0) {
+      return res.status(500).json({success: false, msg: 'Time data is incorrect...'});
     }
     req.body.date = new Date(dateData[0], dateData[1], dateData[2], mongoHour, timeData[1]);
+    const MS_IN_A_MINUTE = 60000;
+    req.body.date = new Date(req.body.date.getTime() - req.body.date.getTimezoneOffset() * MS_IN_A_MINUTE);
     const newAppointment = new Appointment(req.body);
 
     const savedAppointment = await appointmentService.saveModel(newAppointment);
