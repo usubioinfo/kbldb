@@ -36,7 +36,7 @@ mongoose.connection.on('error', (err: any) => {
 // CORS
 const accessControl = (req: Request, res: Response, next: NextFunction) => {
   const allowedOrigins = [
-    'http://127.0.0.1:4000', 'http://localhost:4000', 'http://127.0.0.1:4200', 'http://localhost:4200'
+    'http://127.0.0.1:4000', 'http://localhost:4000', 'http://127.0.0.1:4200', 'http://bioinfo.usu.edu'
   ];
   const origin = req.headers.origin;
   /*
@@ -44,7 +44,7 @@ const accessControl = (req: Request, res: Response, next: NextFunction) => {
     res.setHeader('Access-Control-Allow-Origin', origin);
   }
   */
-  res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.header('Access-Control-Allow-Origin', 'http://bioinfo.usu.edu');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, KBL-User-Agent');
   res.header('Access-Control-Allow-Credentials', 'true');
