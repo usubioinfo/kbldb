@@ -24,7 +24,7 @@ class EmailService {
 
   public async sendMail(subject: string, body: string, recipient: string): Promise<any | null> {
     this.transporter.sendMail({
-      from: 'billthemailbot@usu.edu',
+      from: 'noreply@bioinfocore.usu.edu',
       to: recipient,
       subject: subject,
       text: body
