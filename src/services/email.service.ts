@@ -22,10 +22,10 @@ class EmailService {
 		return EmailService.instance;
 	}
 
-  public async sendMail(subject: string, body: string): Promise<any | null> {
+  public async sendMail(subject: string, body: string, recipient: string): Promise<any | null> {
     this.transporter.sendMail({
       from: 'billthemailbot@usu.edu',
-      to: APPT_EMAIL,
+      to: recipient,
       subject: subject,
       text: body
     }, (err, info) => {

@@ -88,6 +88,7 @@ app.use(passport.session());
 app.use(API_BASE + 'persons', RoutesLib.PersonRoutes);
 app.use(API_BASE + 'news', RoutesLib.NewsArticleRoutes);
 app.use(API_BASE + 'appointments', RoutesLib.AppointmentRoutes);
+app.use(API_BASE + 'email', RoutesLib.EmailRoutes);
 
 app.get(API_BASE, (req: Request, res: Response) => {
   res.status(404).send('<h1 style="color: blue; text-align: center;">404 Error</h1>');

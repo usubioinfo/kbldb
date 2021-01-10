@@ -14,5 +14,6 @@ export const API_BASE = dotenvCheck(process.env.API_BASE);
 export const DB_SECRET = dotenvCheck(process.env.DB_SECRET);
 export const DB_NAME = dotenvCheck(process.env.DB_NAME);
 export const APPT_EMAIL = dotenvCheck(process.env.APPT_EMAIL);
+export const EMAIL_PASS = dotenvCheck(process.env.EMAIL_PASS);
 
 export const ACCEPTED_AGENTS = ['KBLWebv1'];
