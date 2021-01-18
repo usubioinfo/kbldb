@@ -22,9 +22,13 @@ class EmailService {
 		return EmailService.instance;
 	}
 
-  public async sendMail(subject: string, body: string, recipient: string): Promise<any | null> {
-    this.transporter.sendMail({
-      from: 'noreply@bioinfocore.usu.edu',
+  public async sendMail(subject: string, body: string, recipient: string, options?: any): Promise<any | null> {
+		const user = options.user ? options.user : 'noreply';
+		const origin = '';
+		const from = `${user}@bioinfocore.usu.edu`;
+
+		this.transporter.sendMail({
+      from: from,
       to: recipient,
       subject: subject,
       text: body
