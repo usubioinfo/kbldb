@@ -2,6 +2,7 @@ import appointmentService from '@services/appointment.service';
 import emailService from '@services/email.service';
 import { Request, Response } from 'express';
 import { Appointment } from '@schemas/appointment.schema';
+import { APPT_EMAIL } from '@config/constants';
 
 import { toMongoHour } from '@utils/time';
 
@@ -27,7 +28,7 @@ export const addNewAppointmentRoute = async (req: Request, res: Response) => {
     if (savedAppointment) {
       let body = savedAppointment.description ? savedAppointment.description : 'No description';
       body += `\n\n Message back at ${newAppointment.email}`;
-      await emailService.sendMail(`New Appointment - ${savedAppointment.author}`, body);
+      await emailService.sendMail(`New Appointment - ${savedAppointment.author}`, body, APPT_EMAIL);
       return res.json({success: true, msg: 'Successfully added news article', payload: newAppointment});
     } else {
       return res.json({success: false, msg: 'Could not add person...'});
