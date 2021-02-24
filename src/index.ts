@@ -10,7 +10,10 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import passport from 'passport';
 import helmet from 'helmet';
+import cron from 'node-cron';
 
+import { toolCheck } from 'uptime';
+import { tools } from 'tools';
 dotenv.config();
 require('dotenv-defaults/config');
 
@@ -89,11 +92,15 @@ app.use(API_BASE + 'persons', RoutesLib.PersonRoutes);
 app.use(API_BASE + 'news', RoutesLib.NewsArticleRoutes);
 app.use(API_BASE + 'appointments', RoutesLib.AppointmentRoutes);
 app.use(API_BASE + 'email', RoutesLib.EmailRoutes);
+app.use(API_BASE + 'uptime', RoutesLib.UptimeRoutes);
 
 app.get(API_BASE, (req: Request, res: Response) => {
   res.status(404).send('<h1 style="color: blue; text-align: center;">404 Error</h1>');
 });
 
+app.get(`${API_BASE}toolavail`, (req: Request, res: Response) => {
+  res.json(tools);
+})
 
 // Server
 app.listen(PORT, () => {
@@ -101,4 +108,8 @@ app.listen(PORT, () => {
   console.log('TLS/HTTPS is off.');
   console.log('Port: ' + PORT);
   console.log(`Reachable at ${API_BASE}`);
+  toolCheck(tools);
+  cron.schedule('* * * * *', () => {
+    toolCheck(tools);
+  })
 });

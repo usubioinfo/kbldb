@@ -8,7 +8,7 @@ export const addNewsArticleRoute = async (req: Request, res: Response) => {
   const savedArticle = await newsArticleService.saveModel(newArticle);
   if (savedArticle) {
     return res.json({success: true, msg: 'Successfully added news article', article: newArticle});
-  } else {
-    return res.json({success: false, msg: 'Could not add person...'});
   }
+
+  return res.json({success: false, msg: 'Could not add person...'});
 };
