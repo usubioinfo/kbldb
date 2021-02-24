@@ -109,7 +109,7 @@ app.listen(PORT, () => {
   console.log('Port: ' + PORT);
   console.log(`Reachable at ${API_BASE}`);
   toolCheck(tools);
-  cron.schedule('* * * * *', () => {
+  cron.schedule('*/15 * * * *', () => {
     toolCheck(tools);
   })
 });
