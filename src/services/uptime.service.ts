@@ -20,7 +20,7 @@ class UptimeService extends ModelService<IUptime> {
   public async getAllToolData(tools: string[]): Promise<IUptime[]> {
     const toolAggregate: IUptime[] = [];
     for (const tool of tools) {
-      const toolData = await Uptime.findOne({name: tool}).sort({_id: -1});
+      const toolData = await Uptime.findOne({name: tool}).sort({_id: -1}).lean();
       toolAggregate.push(toolData as IUptime);
     }
 
