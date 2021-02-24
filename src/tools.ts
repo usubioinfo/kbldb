@@ -6,7 +6,7 @@ export const tools: {name: string, link: string, availability: string}[] = [
   },
   {
     name: 'citSATdb',
-    link: 'http://bioinfo.usu.edu/citSATdbk',
+    link: 'http://bioinfo.usu.edu/citSATdb',
     availability: ''
   },
   {
