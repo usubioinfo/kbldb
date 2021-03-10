@@ -6,8 +6,7 @@ import fs from 'fs';
 import { generateModelName } from '@gentools/modelname.gen';
 
 const project = new Project({
-  tsConfigFilePath: 'tsconfig.json',
-    addFilesFromTsConfig: false
+  tsConfigFilePath: 'tsconfig.json'
 });
 
 

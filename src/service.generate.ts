@@ -7,8 +7,7 @@ import { generateModelName } from '@gentools/modelname.gen';
 import { generateServiceFile } from '@gentools/service.gen';
 
 const project = new Project({
-  tsConfigFilePath: 'tsconfig.json',
-    addFilesFromTsConfig: false
+  tsConfigFilePath: 'tsconfig.json'
 });
 
 fs.readdir('src/schemas/', (err, files) => {
