@@ -8,7 +8,7 @@ type ExecOutput = {
 
 const MOD_FILES = process.env.MOD_FILES;
 
-const EXCLUDE = ['test', 'template'];
+const EXCLUDE = ['test', 'template', 'bin'];
 
 export const getModFilesInfoRoute = async (req: Request, res: Response) => {
   const output: ExecOutput = await exec(`ls ${MOD_FILES}`);
@@ -49,13 +49,30 @@ export const getModFilesInfoRoute = async (req: Request, res: Response) => {
 export const getAvailModulesRoute = async (req: Request, res: Response) => {
   const lsResults: ExecOutput = await exec(`ls ${MOD_FILES}`);
 
-  const modules = lsResults.stdout.replace(/\s+/g, ' ').trim().split(' ').filter(module => {
+  // tbh this is kinda insane, this is definitely something to clean up in the future
+  let modules = await Promise.all(lsResults.stdout.replace(/\s+/g, ' ').trim().split(' ').filter(module => {
     if(EXCLUDE.includes(module)) {
       return false;
     }
 
     return true;
-  });
+  })
+  .map( async (module) => {
+    const fullPath = `${MOD_FILES}/${module}`;
+    const dirCheck: ExecOutput = await exec(`file ${fullPath}`);
+
+    if (dirCheck.stdout.split(':')[1].trim() !== 'directory') {
+      console.log(`NOT DIR: ${fullPath}`);
+      return {name: module, versions: [module]};
+    }
+
+    const versions = ((await exec(`ls ${fullPath}`)) as ExecOutput).stdout.replace(/\s+/g, ' ').trim().split(' ').map(version => {
+      return `${module}/${version}`;
+    });
+
+    return {name: module, versions};
+  }));
+
 
   return res.json({success: true, payload: modules});
 }
