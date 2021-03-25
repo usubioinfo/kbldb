@@ -1,4 +1,4 @@
-const LinkMap: Record<string, {name: string, link: string}> = {
+export const LinkMap: Record<string, {name: string, link: string}> = {
   'abyss': {name: 'ABySS', link: 'https://github.com/bcgsc/abyss'},
   'AlignGraph': {name: 'AlignGraph', link: 'https://github.com/baoe/AlignGraph'},
   'anaconda3': {name: 'Anaconda 3', link: 'https://docs.anaconda.com/anaconda/packages/old-pkg-lists/5.3.0/py3.6_win-64/'},
