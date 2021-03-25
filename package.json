@@ -11,7 +11,7 @@
     "local": "NODE_ENV=LOCAL tsnd --respawn src/index.ts",
     "generate:schemas": "ts-node src/schema.generate.ts",
     "generate:services": "ts-node src/service.generate.ts",
-    "update": "git pull origin main && npm i && pm2 restart kbldb"
+    "update": "git pull origin master && npm i && pm2 restart kbldb"
   },
   "repository": {
     "type": "git",
