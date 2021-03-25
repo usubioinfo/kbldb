@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
 const {exec} = require('child-process-async');
 
+import { LinkMap } from './config';
+
 type ExecOutput = {
   stdout: string,
   stderr: string
@@ -9,42 +11,6 @@ type ExecOutput = {
 const MOD_FILES = process.env.MOD_FILES;
 
 const EXCLUDE = ['test', 'template', 'bin'];
-
-export const getModFilesInfoRoute = async (req: Request, res: Response) => {
-  const output: ExecOutput = await exec(`ls ${MOD_FILES}`);
-
-  let files = '';
-
-  for (let folder of output.stdout.replace(/\s+/g, ' ').trim().split(' ')) {
-    console.log(`ls ${MOD_FILES}/${folder}`);
-    const fullPath = `${MOD_FILES}/${folder}`;
-
-    files += folder;
-    files += '\n';
-
-    const dirCheck: ExecOutput = await exec(`file ${fullPath}`);
-
-    // lmao
-    if (EXCLUDE.includes(folder)) {
-      continue;
-    }
-
-    if (dirCheck.stdout.split(':')[1].trim() !== 'directory') {
-      console.log(`NOT DIR: ${fullPath}`);
-      continue;
-    }
-
-    const lsOutput: ExecOutput = await exec(`ls ${MOD_FILES}/${folder}`);
-    files += lsOutput.stdout;
-
-    if (lsOutput.stderr) {
-      console.log('ERROR');
-    }
-
-  }
-
-  return res.send(files);
-}
 
 export const getAvailModulesRoute = async (req: Request, res: Response) => {
   const lsResults: ExecOutput = await exec(`ls ${MOD_FILES}`);
@@ -61,16 +27,22 @@ export const getAvailModulesRoute = async (req: Request, res: Response) => {
     const fullPath = `${MOD_FILES}/${module}`;
     const dirCheck: ExecOutput = await exec(`file ${fullPath}`);
 
+    let metadata = LinkMap[module];
+
+    if (!metadata) {
+      metadata = {name: module, link: '#'};
+    }
+
     if (dirCheck.stdout.split(':')[1].trim() !== 'directory') {
       console.log(`NOT DIR: ${fullPath}`);
-      return {name: module, versions: [module]};
+      return {module, versions: [module], name: metadata.name, link: metadata.link};
     }
 
     const versions = ((await exec(`ls ${fullPath}`)) as ExecOutput).stdout.replace(/\s+/g, ' ').trim().split(' ').map(version => {
       return `${module}/${version}`;
     });
 
-    return {name: module, versions};
+    return {module, versions, name: metadata.name, link: metadata.link};
   }));
 
 
