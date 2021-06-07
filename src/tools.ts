@@ -41,7 +41,7 @@ export const tools: {name: string, link: string, availability: string}[] = [
   },
   {
     name: 'RSLpredP',
-    link: 'http://crdd.osdd.net/raghava/rslpred/',
+    link: 'https://webs.iiitd.edu.in/raghava/rslpred/',
     availability: ''
   },
   {
@@ -76,7 +76,7 @@ export const tools: {name: string, link: string, availability: string}[] = [
   },
   {
     name: 'RBPred',
-    link: 'http://crdd.osdd.net/raghava/rbpred/',
+    link: 'https://webs.iiitd.edu.in/raghava/rbpred/',
     availability: ''
   }
 ];
