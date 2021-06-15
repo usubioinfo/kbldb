@@ -15,6 +15,11 @@ export const tools: {name: string, link: string, availability: string}[] = [
     availability: ''
   },
   {
+    name: 'alfaNET',
+    link: 'http://bioinfo.usu.edu/alfanet/',
+    availability: ''
+  },
+  {
     name: 'AP-iNET',
     link: 'http://bioinfo.usu.edu/AP-iNET',
     availability: ''
