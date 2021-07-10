@@ -25,7 +25,7 @@ export const getQuotasRoute = async (req: Request, res: Response) => {
     return false;
   })
   .map((line: string) => {
-    const trimmedline = line.trim().replace(/\s+/g, ' ').replace(/[|]+/, '|');
+    const trimmedline = line.trim().replace(/\s+/g, ' ').replace(/[|]+/g, '|');
     return trimmedline;
   });
 
