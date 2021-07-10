@@ -67,5 +67,5 @@ export const getQuotasRoute = async (req: Request, res: Response) => {
     }
   });
 
-  return res.status(500).json({success: true, payload: dataUsage});
+  return res.status(200).json({success: true, payload: dataUsage});
 };
