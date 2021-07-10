@@ -59,7 +59,7 @@ export const getQuotasRoute = async (req: Request, res: Response) => {
 
     const divFactor = usageDict[usage.units];
 
-    const totalUsage: number = (usage.size / divFactor) / limit.size;
+    const totalUsage: number = ((usage.size / divFactor) / limit.size) * 100;
 
     return {
       name,
