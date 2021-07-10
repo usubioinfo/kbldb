@@ -15,7 +15,7 @@ const users = [
 export const getQuotasRoute = async (req: Request, res: Response) => {
   const { stdout, stderr } = await exec('beegfs-ctl --getquota --uid --all');
 
-  const lines = stdout.split('\n').filter((line: string) => {
+  const lines: string[] = stdout.split('\n').filter((line: string) => {
     for (let user of users) {
       if (line.includes(user)) {
         return true;
@@ -23,7 +23,19 @@ export const getQuotasRoute = async (req: Request, res: Response) => {
     }
 
     return false;
+  })
+  .map((line: string) => {
+    const trimmedline = line.trim().replace(/s+/g, ' ').replace(/[|]+/, '|');
+    return trimmedline;
   });
 
-  return res.status(500).json({success: false, msg: lines});
+  const parsedLines = lines.map((line: string) => {
+    const parsedLine = line.split('|');
+
+    return parsedLine.map((newLine: string) => {
+      return newLine.trim();
+    });
+  });
+
+  return res.status(500).json({success: false, msg: parsedLines});
 };
