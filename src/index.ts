@@ -94,6 +94,7 @@ app.use(API_BASE + 'appointments', RoutesLib.AppointmentRoutes);
 app.use(API_BASE + 'email', RoutesLib.EmailRoutes);
 app.use(API_BASE + 'uptime', RoutesLib.UptimeRoutes);
 app.use(API_BASE + 'modfiles', RoutesLib.ModFilesRoutes);
+app.use(API_BASE + 'quotas', RoutesLib.QuotaRoutes);
 
 app.get(API_BASE, (req: Request, res: Response) => {
   res.status(404).send('<h1 style="color: blue; text-align: center;">404 Error</h1>');
