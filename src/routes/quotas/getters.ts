@@ -10,7 +10,14 @@ const users = [
   'dguevara',
   'khauck',
   'ajouffray'
-]
+];
+
+const usageDict: Record<string, number> = {
+  'KiB': 1000000000,
+  'MiB': 1000000,
+  'GiB': 1000,
+  'TiB': 1
+}
 
 export const getQuotasRoute = async (req: Request, res: Response) => {
   const { stdout, stderr } = await exec('beegfs-ctl --getquota --uid --all');
@@ -37,5 +44,28 @@ export const getQuotasRoute = async (req: Request, res: Response) => {
     });
   });
 
-  return res.status(500).json({success: false, msg: parsedLines});
+
+  const dataUsage = parsedLines.map((line) => {
+    const name = line[0];
+    const usage = {
+      size: parseFloat(line[2].split(' ')[0]),
+      units: line[2].split(' ')[1]
+    }
+
+    const limit = {
+      size: parseFloat(line[3].split(' ')[0]),
+      units: line[3].split(' ')[1]
+    }
+
+    const divFactor = usageDict[usage.units];
+
+    const totalUsage: number = (usage.size / divFactor) / limit.size;
+
+    return {
+      name,
+      useage: totalUsage
+    }
+  });
+
+  return res.status(500).json({success: true, payload: dataUsage});
 };
