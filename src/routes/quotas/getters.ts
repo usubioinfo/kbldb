@@ -63,7 +63,9 @@ export const getQuotasRoute = async (req: Request, res: Response) => {
 
     return {
       name,
-      usage: Math.round(100 * totalUsage)/100
+      usage: Math.round(100 * totalUsage)/100,
+      usageString: line[2],
+      usageMax: line[3]
     }
   });
 
