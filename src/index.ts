@@ -20,6 +20,12 @@ require('dotenv-defaults/config');
 import { userPassportAuth } from '@config/passport';
 import { API_BASE } from '@config/constants';
 import * as RoutesLib from '@config/route-defs';
+import { sys } from 'typescript';
+
+if (process.env.AUTH_TOKEN === 'lmao') {
+  console.log('Change auth token.');
+  process.exit(1);
+}
 
 const PORT = process.env.PORT;
 const db = `mongodb://localhost:27017/${process.env.DB_NAME}`;

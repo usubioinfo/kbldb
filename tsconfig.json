@@ -19,6 +19,7 @@
           "@routes/*": ["routes/*"],
           "@config/*": ["config/*"],
           "@interfaces/*": ["interfaces/*"],
+          "@middleware/*": ["middleware/*"],
           "@models/*": ["models/*"],
           "@utils/*": ["utils/*"],
           "@dbtest/*": ["dbtest/*"],

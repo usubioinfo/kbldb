@@ -2,7 +2,9 @@ import express from 'express';
 const router = express.Router();
 import * as RouteFunctions from './export';
 
-router.get('/all', RouteFunctions.getQuotasRoute);
+import { authMethod } from '@middleware/auth';
+
+router.get('/all', authMethod, RouteFunctions.getQuotasRoute);
 
 const QuotaRoutes = router;
 export default QuotaRoutes;
