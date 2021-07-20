@@ -33,7 +33,7 @@ class EmailService {
       subject: subject,
       text: body
     }, (err, info) => {
-      console.log(err);
+      console.log(`Errors: ${err}`);
       console.log(info);
     });
 
