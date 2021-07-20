@@ -10,7 +10,9 @@ export const sendNewEmailRoute = async (req: Request, res: Response) => {
   }
 
   if (req.body.origin) {
+    console.log(req.body.origin);
     options['origin'] = req.body.origin;
+    return;
   }
 
   if (req.body.password != EMAIL_PASS) {
