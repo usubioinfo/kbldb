@@ -8,7 +8,7 @@ export const updateSiteRoute = async (req: Request, res: Response) => {
   console.log(req.get('origin'));
   console.log(siteName);
 
-  const { stdout, stderr } = await exec('ls -a');
+  const { stdout, stderr } = await exec('who');
 
   return res.json({success: true, msg: stdout});
 
