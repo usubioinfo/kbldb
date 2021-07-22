@@ -82,8 +82,8 @@ const cOpt: cors.CorsOptions = {
 }
 
 const app = express();
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 app.use(cookieParser());
 app.use(helmet());
 app.use(accessControl);
@@ -101,6 +101,7 @@ app.use(API_BASE + 'email', RoutesLib.EmailRoutes);
 app.use(API_BASE + 'uptime', RoutesLib.UptimeRoutes);
 app.use(API_BASE + 'modfiles', RoutesLib.ModFilesRoutes);
 app.use(API_BASE + 'quotas', RoutesLib.QuotaRoutes);
+app.use(API_BASE + 'webmanage', RoutesLib.WebManageRoutes);
 
 app.get(API_BASE, (req: Request, res: Response) => {
   res.status(404).send('<h1 style="color: blue; text-align: center;">404 Error</h1>');
