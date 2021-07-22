@@ -5,7 +5,6 @@ import mongoose from 'mongoose';
 
 import { Request, Response, NextFunction } from 'express';
 import express from 'express';
-import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import passport from 'passport';
