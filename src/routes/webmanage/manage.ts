@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { exec } from 'child-process-async';
+const { exec } = require('child-process-async');
 
 export const updateSiteRoute = async (req: Request, res: Response) => {
   const body = req.body;
