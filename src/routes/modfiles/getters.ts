@@ -22,6 +22,10 @@ cron.schedule('0 4 * * *', () => {
 export const getAvailModulesRoute = async (req: Request, res: Response) => {
   const lsResults: ExecOutput = await exec(`ls ${MOD_FILES}`);
 
+  if (modules.length > 0) {
+    return res.json({success: true, payload: modules});
+  }
+
   // tbh this is kinda insane, this is definitely something to clean up in the future
   modules = await Promise.all(lsResults.stdout.replace(/\s+/g, ' ').trim().split(' ').filter(module => {
     if(EXCLUDE.includes(module)) {
