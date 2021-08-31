@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 const {exec} = require('child-process-async');
 import cron from 'node-cron';
+import axios from 'axios';
 
 import { LinkMap } from './config';
 
@@ -15,8 +16,10 @@ const EXCLUDE = ['test', 'template', 'bin'];
 
 let modules: {module: string, versions: string[], name: string, link: string}[] = [];
 
-cron.schedule('0 4 * * *', () => {
+cron.schedule('0 4 * * *', async () => {
   modules = [];
+
+  await axios.get('http://bioinfocore.usu.edu/api/modfiles/modules');
 });
 
 export const getAvailModulesRoute = async (req: Request, res: Response) => {
