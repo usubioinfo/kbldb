@@ -38,11 +38,19 @@ export const getNodeStatusRoute = async (req: Request, res: Response) => {
   for (let node of nodes) {
     try {
       const res = await axios.get(node.ip);
+      results.push({
+        node: node.name,
+        status: 'online'
+      });
       console.log(res);
     } catch (e) {
       console.log(e);
+      results.push({
+        node: node.name,
+        status: 'offline'
+      });
     }
   }
 
-  return res.json({success: true});
+  return res.json({success: true, payload: results});
 }
