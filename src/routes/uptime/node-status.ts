@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import axios from 'axios';
+import ping from 'ping';
 
 type Node = {
   name: string,
@@ -36,20 +36,21 @@ export const getNodeStatusRoute = async (req: Request, res: Response) => {
   let results: Result[] = [];
 
   for (let node of nodes) {
-    try {
-      const res = await axios.get(node.ip);
+    const res = await ping.promise.probe(node.ip);
+
+    if (res.alive) {
       results.push({
         node: node.name,
         status: 'online'
       });
-      console.log(res);
-    } catch (e) {
-      console.log(e);
-      results.push({
-        node: node.name,
-        status: 'offline'
-      });
+
+      continue;
     }
+
+    results.push({
+      node: node.name,
+      status: 'offline'
+    });
   }
 
   return res.json({success: true, payload: results});
