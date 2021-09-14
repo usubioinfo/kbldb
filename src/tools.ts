@@ -20,6 +20,11 @@ export const tools: {name: string, link: string, availability: string}[] = [
     availability: ''
   },
   {
+    name: 'WeCoNET',
+    link: 'http://bioinfo.usu.edu/weconet/',
+    availability: ''
+  },
+  {
     name: 'AP-iNET',
     link: 'http://bioinfo.usu.edu/AP-iNET',
     availability: ''
