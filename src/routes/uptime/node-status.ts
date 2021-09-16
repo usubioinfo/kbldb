@@ -29,7 +29,7 @@ const getNodeByName = (nodeName: string) => {
 
 export const getNodeStatusRoute = async (req: Request, res: Response) => {
   type Result = {
-    status: 'online' | 'offline',
+    status: 'Online' | 'Offline',
     node: string
   }
 
@@ -41,7 +41,7 @@ export const getNodeStatusRoute = async (req: Request, res: Response) => {
     if (res.alive) {
       results.push({
         node: node.name,
-        status: 'online'
+        status: 'Online'
       });
 
       continue;
@@ -49,7 +49,7 @@ export const getNodeStatusRoute = async (req: Request, res: Response) => {
 
     results.push({
       node: node.name,
-      status: 'offline'
+      status: 'Offline'
     });
   }
 
