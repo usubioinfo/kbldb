@@ -23,9 +23,12 @@ export const toolCheck = async (tools: {name: string, link: string, availability
       tool.availability = 'running';
       await addNewUptime(tool);
     } catch (err) {
-      if (err.response) {
-        console.log(err.response.status);
+      if (axios.isAxiosError(err)) {
+        if (err.response && err.response.status) {
+          console.log(err.response.status);
+        }
       }
+      
       tool.availability = 'down';
       await addNewUptime(tool);
     }
