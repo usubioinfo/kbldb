@@ -108,10 +108,21 @@ const ws = new WebSocket.WebSocketServer({port: 7071}, () => {
   console.log('WebSocket online.')
 });
 
-ws.on('connection', (socket, req) => {
-  console.log('test');
+let numListeners = 0;
+
+ws.on('connection', (socket, _) => {
+  numListeners += 1;
+
+  console.log(`Connection opened. ${numListeners} currently listening.`);
+
 
   socket.on('message', (message) => {
     console.log(message.toString());
   });
+});
+
+ws.on('close', () => {
+  numListeners -= 1;
+
+  console.log(`Connection closed. ${numListeners} listeners remaining.`);
 });
