@@ -104,7 +104,7 @@ app.listen(PORT, () => {
 });
 
 // Web Socket server
-const ws = new WebSocket('ws://bioinfocore.usu.edu/ws');
+const ws = new WebSocket.WebSocketServer({port: 7071});
 
 ws.on('test', () => {
   console.log('test');
