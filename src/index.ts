@@ -112,6 +112,6 @@ ws.on('connection', (socket, req) => {
   console.log('test');
 
   socket.on('message', (message) => {
-    console.log(message);
+    console.log(message.toString());
   });
 });
