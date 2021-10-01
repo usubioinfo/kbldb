@@ -13,13 +13,13 @@ export const toolCheck = async (tools: {name: string, link: string, availability
 
     try {
       const response = await axios.get(tool.link);
-      console.log(response.status);
+      
       tool.availability = 'running';
       await addNewUptime(tool);
     } catch (err) {
       if (axios.isAxiosError(err)) {
         if (err.response && err.response.status) {
-          console.log(err.response.status);
+          console.log(`${tool.name} - ${err.response.status}`);
         }
       }
 

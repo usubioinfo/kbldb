@@ -93,6 +93,4 @@ export const tools: {name: string, link: string, availability: string}[] = [
 
 export const toolNames = tools.map(tool => {
   return tool.name;
-})
-
-// avail types: running, slow, down
+});

@@ -56,26 +56,6 @@ const accessControl = (req: Request, res: Response, next: NextFunction) => {
   return next();
 }
 
-// Allows other domains to use this domain as an API
-const originsWhitelist = [
-  'http://127.0.0.1:4000', 'http://localhost:4000', 'http://127.0.0.1:4200', 'http://localhost:4200'
-];
-const corsOptions: cors.CorsOptions = {
-  origin: (origin, callback) => {
-    if (origin && originsWhitelist.indexOf(origin) >= -1) {
-      return callback(null, true);
-    }
-
-    const error = new Error('CORS Error');
-
-    return callback(error, false);
-  }
-}
-
-const cOpt: cors.CorsOptions = {
-  origin: 'http://localhost:4200',
-  credentials: true
-}
 
 const app = express();
 app.use(express.urlencoded({extended: true}));
@@ -113,7 +93,9 @@ app.listen(PORT, () => {
   console.log('TLS/HTTPS is off.');
   console.log('Port: ' + PORT);
   console.log(`Reachable at ${API_BASE}`);
+
   toolCheck(tools);
+
   cron.schedule('*/15 * * * *', () => {
     toolCheck(tools);
   })
