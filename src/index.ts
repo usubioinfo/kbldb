@@ -20,6 +20,8 @@ import { userPassportAuth } from '@config/passport';
 import { API_BASE } from '@config/constants';
 import * as RoutesLib from '@config/route-defs';
 
+import WebSocket from 'ws';
+
 if (process.env.AUTH_TOKEN === 'lmao') {
   console.log('Change auth token.');
   process.exit(1);
@@ -99,4 +101,11 @@ app.listen(PORT, () => {
   cron.schedule('*/15 * * * *', () => {
     toolCheck(tools);
   })
+});
+
+// Web Socket server
+const ws = new WebSocket('ws://bioinfocore.usu.edu/ws');
+
+ws.on('test', () => {
+  console.log('test');
 });

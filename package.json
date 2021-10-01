@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/MusicDev33/kbldb#readme",
   "dependencies": {
+    "@types/ws": "^8.2.0",
     "axios": "^0.22.0",
     "bcryptjs": "^2.4.3",
     "child-process-async": "^1.0.1",
@@ -48,7 +49,8 @@
     "ts-node": "^10.2.1",
     "tsconfig-paths": "^3.11.0",
     "typescript": "^4.4.3",
-    "winston": "^3.3.3"
+    "winston": "^3.3.3",
+    "ws": "^8.2.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
