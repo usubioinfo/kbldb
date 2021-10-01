@@ -119,10 +119,10 @@ ws.on('connection', (socket, _) => {
   socket.on('message', (message) => {
     console.log(message.toString());
   });
-});
 
-ws.on('close', () => {
-  numListeners -= 1;
+  socket.on('close', () => {
+    numListeners -= 1;
 
-  console.log(`Connection closed. ${numListeners} listeners remaining.`);
+    console.log(`Connection closed. ${numListeners} listeners remaining.`);
+  });
 });
