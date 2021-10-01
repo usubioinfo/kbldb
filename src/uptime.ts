@@ -5,18 +5,12 @@
 import Logger from '@config/logger';
 import axios from 'axios';
 import { addNewUptime } from '@routes/uptime/creation';
-/*
-const tools = [
-  'PredHPI', 'AP-iNET', 'deepHPI', 'hucopia', 'Plant-mSubP', 'AtSubP', 'rslpred',
-  'PLpred', 'NECminer', 'GreeningDB', 'citSATdb', 'legumeSSRdb', 'ranchSATdb',
-  'lacsubpred', 'ligpred', 'rbpred'
-];
-*/
 
 export const toolCheck = async (tools: {name: string, link: string, availability: string}[]) => {
   for (const tool of tools) {
-    // Set to slow, and if it takes a while to load, then it'll actually be slow
+    // Set to slow, and if it takes a while to load, well...it's slow then
     tool.availability = 'slow';
+
     try {
       const response = await axios.get(tool.link);
       console.log(response.status);
@@ -28,24 +22,9 @@ export const toolCheck = async (tools: {name: string, link: string, availability
           console.log(err.response.status);
         }
       }
-      
+
       tool.availability = 'down';
       await addNewUptime(tool);
     }
-    /*
-    axios.get(tool.link)
-      .then((response) => {
-        console.log(response.status);
-        if (response.status >= 200 && response.status > 300) {
-          tool.availability = 'running';
-          addNewUptime(tool);
-        }
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response.status);
-          tool.availability = 'down';
-        }
-      });*/
   }
 }
