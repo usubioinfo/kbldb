@@ -108,6 +108,10 @@ const ws = new WebSocket.WebSocketServer({port: 7071}, () => {
   console.log('WebSocket online.')
 });
 
-ws.on('connection', (req) => {
+ws.on('connection', (socket, req) => {
   console.log('test');
+
+  socket.on('message', (message) => {
+    console.log(message);
+  });
 });
