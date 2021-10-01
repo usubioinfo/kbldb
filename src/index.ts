@@ -106,6 +106,6 @@ app.listen(PORT, () => {
 // Web Socket server
 const ws = new WebSocket.WebSocketServer({port: 7071});
 
-ws.on('test', () => {
+ws.on('message', () => {
   console.log('test');
 });
