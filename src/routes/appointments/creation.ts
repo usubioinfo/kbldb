@@ -12,9 +12,11 @@ export const addNewAppointmentRoute = async (req: Request, res: Response) => {
   try {
     // year, month, day
     const dateData = req.body.date.split('-');
+    
     // hour, minute, meridiem
     const timeData = req.body.time.split('-');
     const mongoHour = toMongoHour(parseInt(timeData[0]), timeData[2]);
+
     // Lol, 0 is falsy
     if (!mongoHour && mongoHour !== 0) {
       return res.status(500).json({success: false, msg: 'Time data is incorrect...'});
