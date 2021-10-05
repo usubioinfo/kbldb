@@ -9,6 +9,7 @@ import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import helmet from 'helmet';
 import cron from 'node-cron';
+import cors from 'cors';
 
 import { toolCheck } from 'uptime';
 import { tools } from 'tools';
@@ -57,6 +58,7 @@ const accessControl = (req: Request, res: Response, next: NextFunction) => {
 
 
 const app = express();
+app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cookieParser());
