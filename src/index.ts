@@ -6,7 +6,6 @@ import mongoose from 'mongoose';
 import { Request, Response, NextFunction } from 'express';
 import express from 'express';
 import cookieParser from 'cookie-parser';
-import cors from 'cors';
 import passport from 'passport';
 import helmet from 'helmet';
 import cron from 'node-cron';
