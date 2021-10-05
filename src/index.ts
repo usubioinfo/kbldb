@@ -16,7 +16,7 @@ dotenv.config();
 require('dotenv-defaults/config');
 
 import { userPassportAuth } from '@config/passport';
-import { API_BASE } from '@config/constants';
+import { API_BASE, ALLOWED_ORIGINS } from '@config/constants';
 import * as RoutesLib from '@config/route-defs';
 
 import WebSocket from 'ws';
@@ -94,6 +94,8 @@ app.listen(PORT, () => {
   console.log('TLS/HTTPS is off.');
   console.log('Port: ' + PORT);
   console.log(`Reachable at ${API_BASE}`);
+
+  console.log(ALLOWED_ORIGINS);
 
   toolCheck(tools);
 
