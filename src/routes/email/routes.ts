@@ -4,7 +4,6 @@ import * as RouteFunctions from './export';
 import { authMethod } from '@middleware/auth';
 
 router.post('/send', RouteFunctions.sendNewEmailRoute);
-router.post('/pscsend', authMethod, RouteFunctions.sendPscEmailRoute);
 
 const EmailRoutes = router;
 export default EmailRoutes;

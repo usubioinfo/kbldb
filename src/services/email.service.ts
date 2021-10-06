@@ -39,37 +39,6 @@ class EmailService {
 
     return null;
   }
-
-  public async pscEmail(recipients: {username: string, password: string, email: string}[]) {
-    const from = 'noreply@bioinfocore.usu.edu';
-
-    for (let recipient of recipients) {
-      const body = `Your account information for the USU HPC is as follows: 
-      
-      username: ${recipient.username}
-      password: ${recipient.password}
-
-      Please change your password the moment you log in! To do this, just type 'passwd' and enter a new password.
-
-      Thank you,
-      Shelby McCowan
-
-      Email me at itsme@shelbymccowan.com if you have any problems with logging in.
-      `;
-
-      this.transporter.sendMail({
-        from: from,
-        to: recipient.email,
-        subject: `PSC 4150/6150 Account Information`,
-        text: body
-      }, (err, info) => {
-        console.log(`Errors: ${err}`);
-        console.log(info);
-      });
-    }
-
-    return null;
-  }
 }
 
 const emailService = EmailService.getInstance();

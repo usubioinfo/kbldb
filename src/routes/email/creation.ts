@@ -28,23 +28,3 @@ export const sendNewEmailRoute = async (req: Request, res: Response) => {
   return res.json({success: true, msg: 'Successfully sent.'});
 
 };
-
-export const sendPscEmailRoute = async (req: Request, res: Response) => {
-  const options: any = {};
-
-  if (req.body.origin) {
-    options['origin'] = req.body.origin;
-  }
-
-  if (!ALLOWED_ORIGINS.includes(req.get('origin') as string)) {
-    return res.status(402).json({success: false, msg: 'Unauthorized'});
-  }
-
-  if (req.body.password != EMAIL_PASS) {
-    return res.status(402).json({success: false, msg: 'Unauthorized'});
-  }
-
-  await EmailService.pscEmail(req.body.recipients);
-
-  return res.json({success: true, msg: 'Emails sent.'});
-}
