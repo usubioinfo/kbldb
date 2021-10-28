@@ -88,6 +88,11 @@ export const tools: {name: string, link: string, availability: string}[] = [
     name: 'RBPred',
     link: 'https://webs.iiitd.edu.in/raghava/rbpred/',
     availability: ''
+  },
+  {
+    name: 'Malivhu',
+    link: 'http://bioinfo.usu.edu/malivhu/',
+    availability: ''
   }
 ];
 
