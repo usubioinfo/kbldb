@@ -25,7 +25,7 @@
   "homepage": "https://github.com/MusicDev33/kbldb#readme",
   "dependencies": {
     "@types/ws": "^8.2.0",
-    "axios": "^0.22.0",
+    "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
     "child-process-async": "^1.0.1",
     "code-block-writer": "^10.1.1",
@@ -34,7 +34,7 @@
     "dotenv": "^10.0.0",
     "dotenv-defaults": "^3.0.0",
     "express": "^4.17.1",
-    "express-rate-limit": "^5.3.0",
+    "express-rate-limit": "^5.5.0",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
     "logform": "^2.3.0",
@@ -46,11 +46,11 @@
     "passport-jwt": "^4.0.0",
     "ping": "^0.4.1",
     "ts-morph": "^12.0.0",
-    "ts-node": "^10.2.1",
+    "ts-node": "^10.4.0",
     "tsconfig-paths": "^3.11.0",
-    "typescript": "^4.4.3",
+    "typescript": "^4.4.4",
     "winston": "^3.3.3",
-    "ws": "^8.2.2"
+    "ws": "^8.2.3"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -63,7 +63,7 @@
     "@types/nodemailer": "^6.4.4",
     "@types/passport": "^1.0.7",
     "@types/passport-jwt": "^3.0.6",
-    "@types/ping": "^0.2.1",
+    "@types/ping": "^0.4.0",
     "ts-node-dev": "^1.1.8"
   }
 }
