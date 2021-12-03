@@ -6,7 +6,6 @@ const users = [
   'rkaundal',
   'naveen',
   'rkataria',
-  'smccowan',
   'dguevara',
   'khauck',
   'ajouffray',
