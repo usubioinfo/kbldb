@@ -95,7 +95,7 @@ export const tools: {name: string, link: string, availability: string}[] = [
     availability: ''
   },
   {
-    name: 'TrustDB',
+    name: 'TRustDB',
     link: 'http://bioinfo.usu.edu/trustdb/',
     availability: ''
   }
