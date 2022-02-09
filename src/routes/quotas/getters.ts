@@ -9,7 +9,7 @@ const users = [
   'dguevara',
   'khauck',
   'ajouffray',
-  'ksaini'
+  'cbernhardt'
 ];
 
 const usageDict: Record<string, number> = {
