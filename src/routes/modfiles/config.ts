@@ -54,5 +54,6 @@ export const LinkMap: Record<string, {name: string, link: string} | undefined> =
   'tophat': {name: 'TopHat', link: 'http://ccb.jhu.edu/software/tophat/manual.shtml'},
   'trim_galore': {name: 'Trim Galore', link: 'https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/'},
   'Trinity': {name: 'Trinity Desktop Environment', link: 'https://www.trinitydesktop.org/'},
-  'vim': {name: 'vim', link: 'https://www.vim.org/'}
+  'vim': {name: 'vim', link: 'https://www.vim.org/'},
+  'vina': {name: 'Vina-GPU', link: 'https://github.com/DeltaGroupNJUPT/Vina-GPU'}
 }
