@@ -103,6 +103,16 @@ export const tools: {name: string, link: string, availability: string}[] = [
     name: 'HuCoVarIA',
     link: 'http://bioinfo.usu.edu/hucovaria/',
     availability: ''
+  },
+  {
+    name: 'ProFeatX',
+    link: 'http://bioinfo.usu.edu/profeatx/',
+    availability: ''
+  },
+  {
+    name: 'pySeqRNA',
+    link: 'http://bioinfo.usu.edu/pyseqrna/',
+    availability: ''
   }
 ];
 
