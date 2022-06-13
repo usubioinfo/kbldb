@@ -46,7 +46,7 @@ export const tools: {name: string, link: string, availability: string}[] = [
   },
   {
     name: 'AtSubP',
-    link: 'http://bioinfo3.noble.org/AtSubP/',
+    link: 'https://www.zhaolab.org/AtSubP/index.php',
     availability: ''
   },
   {
@@ -112,6 +112,11 @@ export const tools: {name: string, link: string, availability: string}[] = [
   {
     name: 'pySeqRNA',
     link: 'http://bioinfo.usu.edu/pyseqrna/',
+    availability: ''
+  },
+  {
+    name: 'TritiKBdb',
+    link: 'http://bioinfo.usu.edu/tritikbdb',
     availability: ''
   }
 ];
