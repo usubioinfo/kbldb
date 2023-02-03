@@ -1,7 +1,7 @@
 export const tools: {name: string, link: string, availability: string}[] = [
   {
     name: 'legumeSSRdb',
-    link: 'http://bioinfo.usu.edu/legumeSSRdb',
+    link: 'http://bioinfo.usu.edu/legumeSSRdb/',
     availability: ''
   },
   {
