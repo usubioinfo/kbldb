@@ -18,6 +18,7 @@ export const toolCheck = async (tools: {name: string, link: string, availability
       tool.availability = 'running';
       await addNewUptime(tool);
     } catch (err) {
+      console.log(err);
       if (axios.isAxiosError(err)) {
         if (err.response && err.response.status) {
           console.log(`${tool.name} - ${err.response.status}`);
