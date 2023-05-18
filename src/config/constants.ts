@@ -17,4 +17,7 @@ export const APPT_EMAIL = dotenvCheck(process.env.APPT_EMAIL);
 export const EMAIL_PASS = dotenvCheck(process.env.EMAIL_PASS);
 export const ALLOWED_ORIGINS = dotenvCheck(process.env.ALLOWED_ORIGINS).split(',');
 
+// Uncomment this when you're ready to add SSL to Axios
+// export const SSL_CERT_PATH = dotenvCheck(process.env.SSL_CERT_PATH);
+
 export const ACCEPTED_AGENTS = ['KBLWebv1'];
