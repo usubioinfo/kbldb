@@ -2,17 +2,20 @@
 // tools on our server. Having tools randomly not being available is
 // really annoying to keep track of, and I'd like to have a way of
 // keeping track of uptime.
-import Logger from '@config/logger';
+import * as https from 'https';
 import axios from 'axios';
+
+import Logger from '@config/logger';
 import { addNewUptime } from '@routes/uptime/creation';
 
-import * as https from 'https';
+// Uncomment when you're ready to use SSL for Axios
+// from { SSL_CERT_PATH } from '@config/constants';
 
 // TODO: Fix this! This is a security hazard!
 const httpsAgent = new https.Agent({ rejectUnauthorized: false });
 
 // Use this to actually set up SSL
-// const httpsAgent = new https.Agent({ ca: MY_CA_BUNDLE_PATH });
+// const httpsAgent = new https.Agent({ ca: SSL_CERT_PATH });
 
 export const toolCheck = async (tools: {name: string, link: string, availability: string}[]) => {
   for (const tool of tools) {
