@@ -50,7 +50,7 @@ export const tools: {name: string, link: string, availability: string}[] = [
     availability: ''
   },
 {
-    name: 'AtSubP2',
+    name: 'AtSubP-2.0',
     link: 'https://bioinfo.usu.edu/AtSubP2',
     availability: ''
   },
