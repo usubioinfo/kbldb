@@ -49,6 +49,11 @@ export const tools: {name: string, link: string, availability: string}[] = [
     link: 'https://www.zhaolab.org/AtSubP/index.php',
     availability: ''
   },
+{
+    name: 'AtSubP2',
+    link: 'https://bioinfo.usu.edu/AtSubP2',
+    availability: ''
+  },
   {
     name: 'RSLpredP',
     link: 'https://webs.iiitd.edu.in/raghava/rslpred/',
