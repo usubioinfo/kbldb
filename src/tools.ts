@@ -124,6 +124,11 @@ export const tools: {name: string, link: string, availability: string}[] = [
     link: 'https://bioinfo.usu.edu/AtSubP2',
     availability: ''
   },
+  {
+    name: 'RSLPred-2.0',
+    link: 'https://bioinfo.usu.edu/RSLPred-2.0',
+    availability: ''
+  },
 ];
 
 export const toolNames = tools.map(tool => {
