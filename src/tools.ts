@@ -49,11 +49,6 @@ export const tools: {name: string, link: string, availability: string}[] = [
     link: 'https://www.zhaolab.org/AtSubP/index.php',
     availability: ''
   },
-{
-    name: 'AtSubP-2.0',
-    link: 'https://bioinfo.usu.edu/AtSubP2',
-    availability: ''
-  },
   {
     name: 'RSLpredP',
     link: 'https://webs.iiitd.edu.in/raghava/rslpred/',
@@ -123,7 +118,12 @@ export const tools: {name: string, link: string, availability: string}[] = [
     name: 'TritiKBdb',
     link: 'https://bioinfo.usu.edu/tritikbdb',
     availability: ''
-  }
+  },
+{
+    name: 'AtSubP-2.0',
+    link: 'https://bioinfo.usu.edu/AtSubP2',
+    availability: ''
+  },
 ];
 
 export const toolNames = tools.map(tool => {
