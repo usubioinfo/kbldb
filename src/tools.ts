@@ -125,13 +125,18 @@ export const tools: {name: string, link: string, availability: string}[] = [
     availability: ''
   },
   {
-    name: 'RSLPred-2.0',
-    link: 'https://bioinfo.usu.edu/RSLPred-2.0/',
+    name: 'RSLpred-2.0',
+    link: 'https://bioinfo.usu.edu/RSLpred-2.0/',
     availability: ''
   },
   {
     name: 'deepNEC-2.0',
     link: 'https://bioinfo.usu.edu/deepnec-2.0/',
+    availability: ''
+  },
+ {
+    name: 'HPInet',
+    link: 'https://bioinfo.usu.edu/hpinet/',
     availability: ''
   }
 ];
