@@ -126,7 +126,7 @@ export const tools: {name: string, link: string, availability: string}[] = [
   },
   {
     name: 'RSLpred-2.0',
-    link: 'https://bioinfo.usu.edu/RSLpred-2.0/',
+    link: 'https://bioinfo.usu.edu/RSLpred2/',
     availability: ''
   },
   {
