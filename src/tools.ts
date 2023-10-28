@@ -138,6 +138,11 @@ export const tools: {name: string, link: string, availability: string}[] = [
     name: 'HPInet',
     link: 'https://bioinfo.usu.edu/hpinet/',
     availability: ''
+  },
+ {
+    name: 'PRGminer',
+    link: 'https://bioinfo.usu.edu/prgminer/',
+    availability: ''
   }
 ];
 
