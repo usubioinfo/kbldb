@@ -46,10 +46,9 @@ WORKDIR /kbldb
 # Install project dependencies
 RUN npm install
 
-WORKDIR /
 
 # Start both MongoDB and the Node.js application
-CMD ["bash", "-c", "mongod --logpath /var/log/mongodb.log --dbpath /data/db && cd /kbldb && pm2 start npm --name=kbldb -- run start"]
+CMD ["bash", "-c", "mongod --logpath /var/log/mongodb.log --dbpath /data/db && pm2 start npm --name=kbldb -- run start"]
 
 
 
