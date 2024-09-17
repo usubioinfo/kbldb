@@ -1,47 +1,47 @@
 export const tools: {name: string, link: string, availability: string}[] = [
   {
     name: 'legumeSSRdb',
-    link: 'https://bioinfo.usu.edu/legumeSSRdb/',
+    link: 'https://kaabil.net/legumeSSRdb/',
     availability: ''
   },
   {
     name: 'citSATdb',
-    link: 'https://bioinfo.usu.edu/citSATdb',
+    link: 'https://kaabil.net/citSATdb',
     availability: ''
   },
   {
     name: 'PredHPI',
-    link: 'https://bioinfo.usu.edu/PredHPI/',
+    link: 'https://kaabil.net/PredHPI/',
     availability: ''
   },
   {
     name: 'alfaNET',
-    link: 'https://bioinfo.usu.edu/alfanet/',
+    link: 'https://kaabil.net/alfanet/',
     availability: ''
   },
   {
     name: 'WeCoNET',
-    link: 'https://bioinfo.usu.edu/weconet/',
+    link: 'https://kaabil.net/weconet/',
     availability: ''
   },
   {
     name: 'AP-iNET',
-    link: 'https://bioinfo.usu.edu/AP-iNET',
+    link: 'https://kaabil.net/AP-iNET',
     availability: ''
   },
   {
     name: 'deepHPI',
-    link: 'https://bioinfo.usu.edu/deepHPI/',
+    link: 'https://kaabil.net/deepHPI/',
     availability: ''
   },
   {
     name: 'HuCoPIA',
-    link: 'https://bioinfo.usu.edu/hucopia/',
+    link: 'https://kaabil.net/hucopia/',
     availability: ''
   },
   {
     name: 'Plant-mSubP',
-    link: 'https://bioinfo.usu.edu/Plant-mSubP',
+    link: 'https://kaabil.net/Plant-mSubP',
     availability: ''
   },
   {
@@ -56,32 +56,32 @@ export const tools: {name: string, link: string, availability: string}[] = [
   },
   {
     name: 'PLpred',
-    link: 'https://bioinfo.usu.edu/PLpred',
+    link: 'https://kaabil.net/PLpred',
     availability: ''
   },
   {
     name: 'deepNEC',
-    link: 'https://bioinfo.usu.edu/deepNEC/',
+    link: 'https://kaabil.net/deepNEC/',
     availability: ''
   },
   {
     name: 'GreeningDB',
-    link: 'https://bioinfo.usu.edu/GreeningDB/',
+    link: 'https://kaabil.net/GreeningDB/',
     availability: ''
   },
   {
     name: 'ranchSATdb',
-    link: 'https://bioinfo.usu.edu/ranchSATdb/',
+    link: 'https://kaabil.net/ranchSATdb/',
     availability: ''
   },
   {
     name: 'LacSubPred',
-    link: 'https://bioinfo.usu.edu/lacsubpred',
+    link: 'https://kaabil.net/lacsubpred',
     availability: ''
   },
   {
     name: 'LigPred',
-    link: 'https://bioinfo.usu.edu/ligpred',
+    link: 'https://kaabil.net/ligpred',
     availability: ''
   },
   {
@@ -91,57 +91,72 @@ export const tools: {name: string, link: string, availability: string}[] = [
   },
   {
     name: 'Malivhu',
-    link: 'https://bioinfo.usu.edu/malivhu/',
+    link: 'https://kaabil.net/malivhu/',
     availability: ''
   },
   {
     name: 'TRustDB',
-    link: 'https://bioinfo.usu.edu/trustdb/',
+    link: 'https://kaabil.net/trustdb/',
     availability: ''
   },
   {
     name: 'HuCoVarIA',
-    link: 'https://bioinfo.usu.edu/hucovaria/',
+    link: 'https://kaabil.net/hucovaria/',
     availability: ''
   },
   {
     name: 'ProFeatX',
-    link: 'https://bioinfo.usu.edu/profeatx/',
+    link: 'https://kaabil.net/profeatx/',
     availability: ''
   },
   {
     name: 'pySeqRNA',
-    link: 'https://bioinfo.usu.edu/pyseqrna/',
+    link: 'https://kaabil.net/pyseqrna/',
     availability: ''
   },
   {
     name: 'TritiKBdb',
-    link: 'https://bioinfo.usu.edu/tritikbdb',
+    link: 'https://kaabil.net/tritikbdb',
     availability: ''
   },
 {
     name: 'AtSubP-2.0',
-    link: 'https://bioinfo.usu.edu/AtSubP2',
+    link: 'https://kaabil.net/AtSubP2',
     availability: ''
   },
   {
     name: 'RSLpred-2.0',
-    link: 'https://bioinfo.usu.edu/RSLpred2/',
+    link: 'https://kaabil.net/RSLpred2/',
     availability: ''
   },
   {
     name: 'deepNEC-2.0',
-    link: 'https://bioinfo.usu.edu/deepnec-2.0/',
+    link: 'https://kaabil.net/deepnec-2.0/',
     availability: ''
   },
  {
     name: 'HPInet',
-    link: 'https://bioinfo.usu.edu/hpinet/',
+    link: 'https://kaabil.net/hpinet/',
     availability: ''
   },
  {
     name: 'PRGminer',
-    link: 'https://bioinfo.usu.edu/prgminer/',
+    link: 'https://kaabil.net/prgminer/',
+    availability: ''
+  },
+  {
+    name: 'HuPoxNET',
+    link: 'https://kaabil.net/hupoxnet/',
+    availability: ''
+  },
+ {
+    name: 'myDockDB',
+    link: 'https://kaabil.net/myDockDB/',
+    availability: ''
+  },
+{
+    name: 'LegumeLoc',
+    link: 'https://kaabil.net/legumeloc/',
     availability: ''
   }
 ];
