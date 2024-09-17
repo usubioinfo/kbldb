@@ -46,11 +46,11 @@ WORKDIR /kbldb
 # Install project dependencies
 RUN npm install
 
+# Copy the entrypoint script
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
-# Start both MongoDB and the Node.js application
-CMD ["bash", "-c", "mongod --logpath /var/log/mongodb.log --dbpath /data/db && pm2 start npm --name=kbldb -- run start"]
+# Make the entrypoint script executable
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
-
-
-
-
+# Use the entrypoint script to start MongoDB and the Node.js app
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

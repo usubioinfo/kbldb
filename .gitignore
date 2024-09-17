@@ -7,3 +7,4 @@ native/artifacts.json
 *.env
 .env
 error.log
+dockerbuilder.sh

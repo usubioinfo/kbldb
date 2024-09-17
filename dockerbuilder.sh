@@ -1,7 +1,7 @@
 #!/bin/bash
 # set the var to be the container
 CONTAINER=kbldb
-FLAGS='-d -p 4000:4000  --restart unless-stopped --network docker-br0 --ip 172.20.0.4'
+FLAGS='-d -p 4000:4000  --restart unless-stopped --network docker-br0'
 MYMAX=0
 # stop the containers
 for n in $(docker images $CONTAINER --format "{{.Tag}}")
