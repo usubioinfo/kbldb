@@ -50,7 +50,7 @@ export const tools: {name: string, link: string, availability: string}[] = [
     availability: ''
   },
   {
-    name: 'RSLpredP',
+    name: 'RSLpred',
     link: 'https://webs.iiitd.edu.in/raghava/rslpred/',
     availability: ''
   },
@@ -158,8 +158,14 @@ export const tools: {name: string, link: string, availability: string}[] = [
     name: 'LegumeLoc',
     link: 'https://kaabil.net/legumeloc/',
     availability: ''
+  },
+{
+    name: 'HPIpy',
+    link: 'https://kaabil.net/hpipy/',
+    availability: ''
   }
 ];
+
 
 export const toolNames = tools.map(tool => {
   return tool.name;
